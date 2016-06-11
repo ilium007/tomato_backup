@@ -35,9 +35,8 @@ items='
   wl[0-9]_wpa_psk
 '
 
-etc=/opt/etc
 base=${0##*/}; base=${base%.*}
-config=$etc/$base.ini
+config=./$base.ini
 
 #file to output - default to stdout
 if [ "$1" != "" ] ; then
