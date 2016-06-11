@@ -35,8 +35,9 @@ items='
   wl[0-9]_wpa_psk
 '
 
+config_dir="/mnt/EXTUSB/scripts"
 base=${0##*/}; base=${base%.*}
-config=./$base.ini
+config=$config_dir/$base.ini
 
 #file to output - default to stdout
 if [ "$1" != "" ] ; then
