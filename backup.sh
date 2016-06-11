@@ -49,7 +49,7 @@ grepstr=$( { [ -r $config ] && cat $config || echo "$items" ; } | sed -e 's/[\t 
 
 {
 echo "#Exporting $grepstr"
-for item in $(nvram show 2>/dev/null | grep "^.*=" | grep "$grepstr"  | awk -F= "{print \$1}" | sort -u)
+for item in $(nvram show 2>/dev/null | grep "^.*=" | grep -v "hwaddr" | grep "$grepstr"  | awk -F= "{print \$1}" | sort -u)
 do
   item_value="$(nvram get $item | sed 's!\([\$\"\`]\)!\\\1!g'; echo nvgetwasnull)"
   case $item_value in
