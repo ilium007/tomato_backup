@@ -26,13 +26,14 @@
 #comprehensive. Customize for your own use.
 #
 
+config_dir=${2-/mnt/EXTUSB/scripts}
+backup_path=${3-/mnt/EXTUSB/backups}
+
 #file to output - default to stdout
 backupfile=${1-/proc/$$/fd/1}
 if [ $1 ]; then
-  backupfile=$backupfile`date +%Y%m%d`.nvram
+  backupfile=$backup_path/$backupfile`date +%Y%m%d`.nvram
 fi
-config_dir=${2-/mnt/EXTUSB/scripts}
-backup_path=${3-/mnt/EXTUSB/backups}
 
 #Edit list below if not using .ini file, it is ignored if .ini file is found
 items='
