@@ -35,4 +35,4 @@ for file in $backup_files; do
   fi
 done
 
-logger -t "nvram_archive" "end script""archive_backups.sh" 17L, 427C
+logger -t "nvram_archive" "end script""archive_backups.sh"
