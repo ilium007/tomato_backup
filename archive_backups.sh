@@ -24,7 +24,8 @@ fi
 date_today=$(date +%s)
 
 for file in $backup_files; do
-  logger -t "nvram_archive" "$file"
+  echo "checking $file"
+  logger -t "nvram_archive" "checking $file"
   file_mod_date=$(/bin/date -r $file +%s)
   if [ $(( ( $date_today - $file_mod_date ) / 86400 )) -ge $keep_for_days ]; then
     echo "deleting $file"
