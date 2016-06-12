@@ -66,3 +66,5 @@ nvgetwasnull}\"" ;;
   esac
 done
 }>"$backupfile"
+
+/bin/chmod 600 "$backupfile"
