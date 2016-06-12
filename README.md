@@ -10,6 +10,6 @@ $2 - config dir; location for the .ini file
 $3 - backup path
 
 
-archive_backups.sh takes a single optional arguement:
+archive_backups.sh takes a single optional argument:
 
 $1 - retention days for backups; defaults to 14
