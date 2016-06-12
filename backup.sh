@@ -26,6 +26,14 @@
 #comprehensive. Customize for your own use.
 #
 
+#file to output - default to stdout
+backupfile=${1-/proc/$$/fd/1}
+if [ $1 ]; then
+  backupfile=$backupfile`date +%Y%m%d`.nvram
+fi
+config_dir=${2-/mnt/EXTUSB/scripts}
+backup_path=${3-/mnt/EXTUSB/backups}
+
 #Edit list below if not using .ini file, it is ignored if .ini file is found
 items='
   dhcpd_
@@ -35,14 +43,11 @@ items='
   wl[0-9]_wpa_psk
 '
 
-config_dir="/mnt/EXTUSB/scripts"
 base=${0##*/}; base=${base%.*}
 config=$config_dir/$base.ini
 
 #file to output - default to stdout
-if [ "$1" != "" ] ; then
-  backupfile="$1"
-else
+if [ ! "$1" ] ; then
   backupfile=/proc/$$/fd/1
 fi
 
